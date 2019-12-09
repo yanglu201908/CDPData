@@ -16,6 +16,6 @@ def merge_all_poi_file(base_path, ext, output_path):
 
 if __name__ == '__main__':
     base_path = "../../data/output"
-    ext = ".json"
-    output_path = "../../data/poi/poi_all.json"
+    ext = ".cdpData"
+    output_path = "../../data/poi/poi_all.cdpData"
     merge_all_poi_file(base_path=base_path, ext=ext, output_path=output_path)

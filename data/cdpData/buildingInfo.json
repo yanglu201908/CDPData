@@ -1,0 +1,257 @@
+{
+  "0ff88c16-25b6-418d-8935-6ee320fcdd9d": {
+    "building_name": "CR Land Tower D",
+    "building_city": "Shenzhen",
+    "building_lat": "22.548227499195566",
+    "building_lon": "113.96113217774608",
+    "building_uuid": "0ff88c16-25b6-418d-8935-6ee320fcdd9d",
+    "buildingDimensions": {
+      "buildingName": "",
+      "buildingAddress": "",
+      "districtName": "",
+      "buildingOpenDate": "",
+      "Ammenities Flags": {
+        "businessRegistration": "1",
+        "petFriendly": "1",
+        "weekendAC": "1",
+        "buildingParkingAvailability": "1",
+        "GO": "1"
+      },
+      "specialAmmenities": [
+        "yoga",
+        "babyRoom"
+      ]
+    },
+    "memberInfo": {
+      "genderDistribution": "",
+      "interestDistribution": {
+        "sports": "",
+        "movies": "",
+        "cars": "",
+      },
+      "industryDistribution": {
+        "Tech": "",
+        "Consulting": "",
+        "Finance": "",
+      }
+    },
+    "buildingMonthly": {
+      "20191001": {
+        "capacity": "",
+        "occupiedDesks": "",
+        "occupancy": "",
+        "averageMarketPrice": "",
+        "averageNetPrice": "",
+        "averageDiscount": ""
+      },
+      "20191101": {
+        "capacity": "",
+        "occupiedDesks": "",
+        "occupancy": "",
+        "averageMarketPrice": "",
+        "averageNetPrice": "",
+        "averageDiscount": ""
+      },
+      "20191201": {
+        "capacity": "",
+        "occupiedDesks": "",
+        "occupancy": "",
+        "averageMarketPrice": "",
+        "averageNetPrice": "",
+        "averageDiscount": ""
+      }
+    },
+    "reservationMonthly": {
+      "20191001": {
+        "HD": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "DD": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_1_10": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_11_20": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_21_50": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_50+": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        }
+      },
+      "20191101": {
+        "HD": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "DD": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_1_10": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_11_20": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_21_50": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_50+": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        }
+      },
+      "20191201": {
+        "HD": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "DD": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_1_10": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_11_20": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_21_50": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        },
+        "PO_50+": {
+          "numHD": "",
+          "SKUOccupancy": "",
+          "SKUIdleTime": "",
+          "averagePrice": "",
+          "averageDiscount": "",
+          "topAccountsByDesks": "",
+        }
+      }
+    },
+    "conferenceRoomMonthly": {
+      "5A": {
+        "WeeklyBookedHours": "70",
+      },
+      "5B": {
+        "WeeklyBookedHours": "70",
+      },
+      "5C": {
+        "WeeklyBookedHours": "70",
+      },
+      "5D": {
+        "WeeklyBookedHours": "70",
+      },
+      "5F": {
+        "WeeklyBookedHours": "70",
+      }
+    },
+    "eventFact": {
+      "eventId": {
+        "eventName": "",
+        "eventTime": "",
+        "numRSVP": "",
+        "Rating": "",
+        "Sponsor": "",
+      },
+      "eventId1": {
+        "eventName": "",
+        "eventTime": "",
+        "numRSVP": "",
+        "Rating": "",
+        "Sponsor": "",
+      },
+      "eventId2": {
+        "eventName": "",
+        "eventTime": "",
+        "numRSVP": "",
+        "Rating": "",
+        "Sponsor": "",
+      }
+    },
+  }
+}
