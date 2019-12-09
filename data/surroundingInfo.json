@@ -1,0 +1,59 @@
+{
+  "0ff88c16-25b6-418d-8935-6ee320fcdd9d": {
+    "Transportation": {
+      "subwaylines":[
+        "9", "15", "17"
+      ],
+      "distanceFromSubwayExitToWework": "",
+    },
+    "Competitors": {
+      "numCompetitors": "",
+      "comp1": {
+        "lat": "",
+        "lng": "",
+        "address": "",
+      },
+      "comp2": {
+        "lat": "",
+        "lng": "",
+        "address": "",
+      },
+      "comp3": {
+        "lat": "",
+        "lng": "",
+        "address": "",
+      },
+      "comp4": {
+        "lat": "",
+        "lng": "",
+        "address": "",
+      },
+      "comp5": {
+        "lat": "",
+        "lng": "",
+        "address": "",
+      },
+    },
+    "POIHighlights": {
+      "shoppingMall": {
+        "name": "",
+        "address": "",
+        "distanceToBuilding": "",
+      },
+      "shoppingMall": {
+        "name": "",
+        "address": "",
+        "distanceToBuilding": "",
+      },
+    },
+    "POISummary": {
+      "subwayLineList": "",
+      "shoppingCenterCount": "",
+      "restaurantBarCount": "",
+      "luxuryHotelCount": "",
+      "ExpressInnCount": "",
+      "publicParkingCount": "",
+      "bankCount": "",
+    }
+  }
+}
