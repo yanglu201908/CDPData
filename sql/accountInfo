@@ -1,0 +1,17 @@
+select promos.LOCATION_uuid as buildingUuid
+    , DATE_TRUNC('month', promos.report_month)::date AS month
+    , promos.ACCOUNT_UUID as accountUuid
+    , promos.account_name as accountName
+    , accounts.ORGANIZATION_NAME as organizationName
+    , INDUSTRY
+    , sum(promos.OCCUPANCY) as occupiedDesks
+from central.cdm.space_inventory_bom promos
+left join central.cdm.accounts AS accounts ON promos.account_uuid = accounts.account_uuid
+left join china.china_dw.dim_locations_china AS location
+ON promos.location_uuid = location.uuid
+where location.COUNTRY ilike '%china%'
+and report_month >= date_trunc('month',current_date())
+and REPORT_MONTH <= current_date()
+and promos.ACCOUNT_UUID is not null
+group by 1,2,3,4,5,6
+order by 1,2,3,4,5,6
