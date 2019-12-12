@@ -1,0 +1,24 @@
+SELECT
+	location_uuid as buildingUuid
+    , DATE_TRUNC('month', promos.report_month)::date AS month
+    , case when sku in ('HD','DD') then sku
+           when promos.capacity >=1 and promos.capacity <=10 then '01-10'
+           when promos.capacity >=11 and promos.capacity <=20 then '11-20'
+           when promos.capacity >=21 and promos.capacity <=50 then '21-50'
+           when promos.capacity >50 then '50+' end as skuType
+    , count(distinct RESERVABLE_UUID) as countReservable
+    , COALESCE(SUM(promos.capacity), 0)             AS deskCapacity
+    , COALESCE(SUM(promos.OCCUPANCY), 0)             AS deskOccupancy
+    , 1.0 * (COALESCE(SUM(promos.OCCUPANCY), 0))
+    / NULLIF((COALESCE(SUM(promos.capacity), 0)), 0) AS occupancyRate
+	,(COALESCE(SUM(case when promos.account_name is null then 0 else promos.market_price_local end  ), 0))/nullif((COALESCE(SUM(promos.occupancy ), 0)),0) AS avgMarketPrice
+	,(COALESCE(SUM(promos.net_paid_price_local ), 0))/nullif((COALESCE(SUM(promos.occupancy ), 0)),0) AS avgNetPrice
+    ,((COALESCE(SUM(promos.total_promo_discount_local ), 0)) + (COALESCE(SUM(promos.total_non_promo_discount_local ), 0)) +(COALESCE(SUM(promos.total_operational_discount_local ), 0)))*1.0/nullif((COALESCE(SUM(promos.local_currency_price ), 0)),0)  AS avgDiscount
+FROM central.cdm.space_inventory_bom AS promos
+left join china.china_dw.dim_locations_china AS location
+ON promos.location_uuid = location.uuid
+WHERE report_month >= TO_TIMESTAMP('2016-01-01')
+and report_month <= current_date()
+and location.COUNTRY ilike '%china%'
+GROUP BY 1,2,3
+order by 1,2,3
