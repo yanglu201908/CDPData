@@ -1,0 +1,33 @@
+{
+  "0ff88c16-25b6-418d-8935-6ee320fcdd9d": {
+    "name": "CR Land Tower D",
+    "nameChinese": "",
+    "city": "shenzhen",
+    "lat": "22.548227499195566",
+    "lng": "113.96113217774608",
+    "uuid": "0ff88c16-25b6-418d-8935-6ee320fcdd9d",
+    "address": "",
+    "districtName": "",
+    "buildingOpenDate": "",
+    "amenities": {
+      "businessRegistration": "1",
+      "petFriendly": "1",
+      "weekendAC": "1",
+      "buildingParkingAvailability": "1",
+      "GO": "1"
+      },
+    "specialAmenities": [
+      "yoga",
+      "babyRoom"
+    ],
+    "genderDistribution": {
+      "malePCT": "",
+      "femalePCT": ""
+    },
+    "industryDistribution": {
+      "Tech": "",
+      "Consulting": "",
+      "Finance": ""
+    }
+  }
+}

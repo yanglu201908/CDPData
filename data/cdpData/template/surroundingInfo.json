@@ -1,12 +1,12 @@
 {
   "0ff88c16-25b6-418d-8935-6ee320fcdd9d": {
-    "Transportation": {
-      "subwaylines":[
+    "transportation": {
+      "subwayLines":[
         "9", "15", "17"
       ],
       "distanceFromSubwayExitToWework": "",
     },
-    "Competitors": {
+    "competitors": {
       "numCompetitors": "",
       "comp1": {
         "lat": "",
@@ -34,7 +34,7 @@
         "address": "",
       },
     },
-    "POIHighlights": {
+    "poiHighlights": {
       "shoppingMall": {
         "name": "",
         "address": "",
@@ -46,7 +46,7 @@
         "distanceToBuilding": "",
       },
     },
-    "POISummary": {
+    "poiSummary": {
       "subwayLineList": "",
       "shoppingCenterCount": "",
       "restaurantBarCount": "",

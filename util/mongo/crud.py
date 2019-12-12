@@ -5,7 +5,7 @@ vm_ip = "172.31.253.69"
 local_ip = "0.0.0.0"
 
 
-def insert_data(data: list, collection_name="poi_info", ip="0.0.0.0", port=27017):
+def insert_data(data: list, collection_name="poi_info", ip=vm_ip, port=27017):
     # Create connection to MongoDB
     client = MongoClient(ip, port, username='root', password='1234567890')
     db = client['poi']
@@ -19,7 +19,12 @@ def insert_data(data: list, collection_name="poi_info", ip="0.0.0.0", port=27017
 if __name__ == '__main__':
     data = load_json_file.load_file("../../data/poi/poi_elem.json")
     output = []
+    from util.coordinates import transformation
     for key in data:
-        output.append(data[key])
+        record = data[key]
+        lat = float(record["LAT"])
+        lng = float(record["LNG"])
+        record["LNG"], record["LAT"] = transformation.wgs84_to_gcj02(lng, lat)
+        output.append(record)
 
     insert_data(output, collection_name="poi_500m", ip=vm_ip)

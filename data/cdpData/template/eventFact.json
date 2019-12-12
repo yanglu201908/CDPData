@@ -1,0 +1,22 @@
+{
+  "eventFact": {
+    "eventId": {
+      "eventName": "",
+      "eventTime": "",
+      "numRSVP": "",
+      "eventType": "",
+    },
+    "eventId1": {
+      "eventName": "",
+      "eventTime": "",
+      "numRSVP": "",
+      "eventType": ""
+    },
+    "eventId2": {
+      "eventName": "",
+      "eventTime": "",
+      "numRSVP": "",
+      "eventType": ""
+    }
+}
+
