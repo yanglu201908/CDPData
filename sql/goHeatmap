@@ -1,0 +1,8 @@
+SELECT
+     o.LOCATION_UUID
+    ,TO_CHAR(CAST(o.order_start_at AS timestamp), 'DY') as startWeekday
+	,EXTRACT(HOUR FROM o.order_start_at) AS startHour
+	,count(distinct case when o.order_status in ('COMPLETE','COMPANY_PAY_COMPLETE') then o.order_id end) as totalStays
+from CHINA.CHINA_DW.GO_ORDERS o
+GROUP BY 1,2,3
+order by 1,2,3
