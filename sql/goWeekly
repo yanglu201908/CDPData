@@ -1,0 +1,10 @@
+select
+ o.LOCATION_UUID as buildingUuid
+,date_trunc('week',ORDER_START_AT)::date as week
+,count(distinct case when o.order_status in ('COMPLETE','COMPANY_PAY_COMPLETE') then o.order_id end) as totalStays
+,coalesce(sum(o.paid_price), 0) AS totalRevenue
+,count(distinct case when o.order_status in ('COMPLETE','COMPANY_PAY_COMPLETE') then o.USER_ID end) as totalUsers
+,count(distinct case when paid_price  > 0 then o.USER_ID end) as totalPaidUsers
+from CHINA.CHINA_DW.GO_ORDERS o
+group by 1,2
+order by 1,2
