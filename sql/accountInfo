@@ -1,9 +1,64 @@
+with multi_location as
+   (
+    select distinct ACCOUNT_UUID
+   , count(distinct LOCATION_UUID) as count_location
+    from central.cdm.space_inventory_bom promos
+    left join china.china_dw.dim_locations_china AS location
+    ON promos.location_uuid = location.uuid
+    where location.COUNTRY ilike '%china%'
+    group by 1
+    order by 2 desc
+    )
+
+
+,history as
+(
+select distinct
+         a.ACCOUNT_UUID
+        ,a.LOCATION_UUID
+        ,a.LOCATION_name
+        ,location.CITY city
+        ,min(date_trunc('day',RESERVATION_STARTED_ON_LOCAL)::date) as reservationStart
+        ,max(date_trunc('day',RESERVATION_ENDED_ON_LOCAL)::date) as reservationEnd
+from central.cdm.space_inventory_bom a
+join multi_location b on a.ACCOUNT_UUID = b.ACCOUNT_UUID
+left join china.china_dw.dim_locations_china AS location on a.LOCATION_UUID = location.UUID
+where b.count_location > 1
+and location.COUNTRY ilike '%china%'
+group by 1,2,3,4
+order by 1,2
+)
+
+,monthly_desk as
+    (
+    select distinct promos.ACCOUNT_UUID
+                    ,LOCATION_UUID
+                    ,REPORT_MONTH
+                    ,sum(promos.OCCUPANCY) as occupiedDesks
+    from central.cdm.space_inventory_bom promos
+    left join china.china_dw.dim_locations_china AS location
+    ON promos.location_uuid = location.uuid
+    where location.COUNTRY ilike '%china%'
+    group by 1,2,3
+    )
+
+,max_desk as
+    (
+    select ACCOUNT_UUID,location_uuid,max(occupiedDesks) as occupiedDesks
+    from monthly_desk
+    group by 1,2
+    )
+
+,account_info as
+    (
 select promos.LOCATION_uuid as buildingUuid
     , DATE_TRUNC('month', promos.report_month)::date AS month
     , promos.ACCOUNT_UUID as accountUuid
     , promos.account_name as accountName
     , accounts.ORGANIZATION_NAME as organizationName
     , INDUSTRY
+    , min(date_trunc('day',RESERVATION_STARTED_ON_LOCAL)::date) as reservationStart
+    , max(date_trunc('day',RESERVATION_ENDED_ON_LOCAL)::date) as reservationEnd
     , sum(promos.OCCUPANCY) as occupiedDesks
 from central.cdm.space_inventory_bom promos
 left join central.cdm.accounts AS accounts ON promos.account_uuid = accounts.account_uuid
@@ -15,3 +70,16 @@ and REPORT_MONTH <= current_date()
 and promos.ACCOUNT_UUID is not null
 group by 1,2,3,4,5,6
 order by 1,2,3,4,5,6
+)
+
+select a.*
+    ,h.LOCATION_UUID as otherBuildingUuid
+    ,h.LOCATION_NAME as otherBuildingName
+    ,h.city as otherCity
+    ,h.reservationStart as otherReservationStart
+    ,h.reservationEnd as otherReservationEnd
+    ,m.occupiedDesks as otherOccupiedDesks
+from account_info a
+left join history h on a.accountUuid = h.ACCOUNT_UUID and a.buildingUuid <> h.LOCATION_UUID
+left join max_desk m on h.ACCOUNT_UUID = m.ACCOUNT_UUID and h.LOCATION_UUID = m.LOCATION_UUID
+order by 1,3

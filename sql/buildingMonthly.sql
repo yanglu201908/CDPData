@@ -5,6 +5,7 @@ SELECT
     , COALESCE(SUM(promos.OCCUPANCY), 0)             AS deskOccupancy
     , 1.0 * (COALESCE(SUM(promos.OCCUPANCY), 0))
     / NULLIF((COALESCE(SUM(promos.capacity), 0)), 0) AS occupancyRate
+    ,count(distinct promos.ACCOUNT_UUID) as countAccount
   ,(COALESCE(SUM(case when promos.account_name is null then 0 else promos.market_price_local end  ), 0))/nullif((COALESCE(SUM(promos.occupancy ), 0)),0) AS avgMarketPrice
   ,(COALESCE(SUM(promos.net_paid_price_local ), 0))/nullif((COALESCE(SUM(promos.occupancy ), 0)),0) AS avgNetPrice
     ,((COALESCE(SUM(promos.total_promo_discount_local ), 0)) + (COALESCE(SUM(promos.total_non_promo_discount_local ), 0)) +(COALESCE(SUM(promos.total_operational_discount_local ), 0)))*1.0/nullif((COALESCE(SUM(promos.local_currency_price ), 0)),0)  AS avgDiscount
