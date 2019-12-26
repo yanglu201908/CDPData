@@ -1,4 +1,5 @@
-select LOCATION_UUID as buildingUuid
+select distinct
+     LOCATION_UUID as buildingUuid
     ,loc_name as buildingName
     ,case when ROOM_CAPACITY <= 4 then 'small (2:4)'
           when ROOM_CAPACITY > 4 and ROOM_CAPACITY <= 10 then 'medium (5:10)'
@@ -8,10 +9,9 @@ select LOCATION_UUID as buildingUuid
     ,ROOM_CAPACITY as roomCapacity
     ,date_trunc('day',RESERVATION_START_TIME)::date as startDate
     ,TO_CHAR(CAST(RESERVATION_START_TIME AS timestamp), 'DY') as startWeekday
--- 	,EXTRACT(HOUR FROM RESERVATION_START_TIME) AS startHour
     ,RESERVATION_START_TIME
     ,RESERVATION_END_TIME
---     ,sum(datediff('minute',RESERVATION_START_TIME,RESERVATION_END_TIME))/60 as BookedHours
+    ,BOOKED_MIN
 from CHINA.CHINA_DW.CHINA_CONFERENCE_ROOM_RESERVATION_DTL
 where RESERVATION_START_TIME < current_date()
 and   RESERVATION_START_TIME >= dateadd('day',-90,current_date())
